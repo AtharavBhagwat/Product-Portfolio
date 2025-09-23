@@ -131,6 +131,8 @@
         .typing-text {
             border-right: 2px solid var(--primary);
             animation: blink 1s infinite;
+            min-height: 1.2em;
+            display: inline-block;
         }
         
         @keyframes blink {
@@ -197,8 +199,12 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--dark);
             position: relative;
+        }
+        
+        .logo a {
+            color: var(--dark);
+            text-decoration: none;
         }
         
         .logo::after {
@@ -305,6 +311,9 @@
             margin-bottom: 20px;
             color: #333;
             line-height: 1.2;
+        }
+        
+        .hero h1 .name {
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -412,6 +421,136 @@
             left: 0;
         }
 
+        /* Education section */
+        .education {
+            padding: 100px 0;
+            background-color: var(--secondary);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--gradient);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            transition: var(--transition);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--light);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 2;
+            transition: var(--transition);
+        }
+        
+        .timeline-item:hover::after {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(0, 102, 204, 0.4);
+        }
+        
+        .timeline-left {
+            left: 0;
+        }
+        
+        .timeline-right {
+            left: 50%;
+        }
+        
+        .timeline-left::after {
+            right: -14px;
+        }
+        
+        .timeline-right::after {
+            left: -14px;
+        }
+        
+        .timeline-content {
+            padding: 25px;
+            background: var(--light);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        
+        .company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        
+        .timeline-text {
+            flex: 1;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .timeline-content h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .timeline-content .date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
         /* Projects section */
         .projects {
             padding: 100px 0;
@@ -496,109 +635,10 @@
             color: var(--primary-dark);
         }
 
-        /* Enhanced Experience Timeline */
-        .experience {
-            padding: 100px 0;
-            background-color: var(--secondary);
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: var(--gradient);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-            transition: var(--transition);
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--light);
-            border: 4px solid var(--primary);
-            border-radius: 50%;
-            top: 20px;
-            z-index: 2;
-            transition: var(--transition);
-        }
-        
-        .timeline-item:hover::after {
-            transform: scale(1.2);
-            box-shadow: 0 0 20px rgba(0, 102, 204, 0.4);
-        }
-        
-        .timeline-left {
-            left: 0;
-        }
-        
-        .timeline-right {
-            left: 50%;
-        }
-        
-        .timeline-left::after {
-            right: -14px;
-        }
-        
-        .timeline-right::after {
-            left: -14px;
-        }
-        
-        .timeline-content {
-            padding: 25px;
-            background: var(--light);
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            position: relative;
-            transition: var(--transition);
-        }
-        
-        .timeline-content:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .timeline-content h3 {
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-        
-        .timeline-content h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .timeline-content .date {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-
         /* Process Section Enhancement */
         .process {
             padding: 100px 0;
-            background: var(--light);
+            background: var(--secondary);
         }
         
         .process-flow {
@@ -674,18 +714,16 @@
             font-size: 1.2rem;
         }
 
-        /* Education section */
-        .education {
-            padding: 100px 0;
-            background-color: var(--secondary);
-        }
-
         /* Publications and Patents */
         .publications, .patents {
             padding: 100px 0;
         }
         
         .publications {
+            background-color: var(--light);
+        }
+        
+        .patents {
             background-color: var(--secondary);
         }
         
@@ -994,12 +1032,12 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo"><a href="#home" class="animated-link" style="color: var(--dark); text-decoration: none;">Atharav Bhagwat</a></div>
+                <div class="logo"><a href="#hero" class="animated-link">Atharav Bhagwat</a></div>
                 <div class="nav-links">
                     <a href="#about" class="animated-link">About</a>
                     <a href="#education" class="animated-link">Education</a>
-                    <a href="#projects" class="animated-link">Projects</a>
                     <a href="#experience" class="animated-link">Experience</a>
+                    <a href="#projects" class="animated-link">Projects</a>
                     <a href="#process" class="animated-link">Process</a>
                     <a href="#publications" class="animated-link">Publications</a>
                     <a href="#patents" class="animated-link">Patents</a>
@@ -1016,17 +1054,17 @@
                 <img src="Atharav Bhagwat Profile.jpeg" alt="Atharav Bhagwat Profile" class="hero-image">
             </div>
             <div class="hero-content slide-in-right">
-                <h1>Hi, I'm Atharav Bhagwat!<br><span class="typing-text">An Aspiring Product Manager & Enthusiastic Learner</span></h1>
+                <h1>Hi, I'm <span class="name">Atharav</span> :)<br><span class="typing-text"></span></h1>
                 <p>Bridging technical innovation with effective business strategy, I'm currently pursuing Master's degree from Dartmouth College with expertise in Product Management, Data Analysis, and Strategic Planning.</p>
                 <a href="Atharav Bhagwat- Resume.pdf" class="cta-button hover-lift" download>Download My Resume</a>
                 
                 <div class="stats-counter">
                     <div class="stat-item">
-                        <span class="stat-number" data-target="15">0</span>
+                        <span class="stat-number" data-target="12">0</span>
                         <span class="stat-label">Projects</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="5">0</span>
+                        <span class="stat-number" data-target="7">0</span>
                         <span class="stat-label">Companies</span>
                     </div>
                     <div class="stat-item">
@@ -1042,7 +1080,7 @@
     <section class="about fade-in" id="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
-            <p>I'm an aspiring product manager with a passion for creating data-driven solutions that address real-world challenges. Currently pursuing a Master's in Engineering Management at Dartmouth College, I bring a unique blend of technical expertise in electronics engineering and business acumen.</p>
+            <p>I'm a product manager with a passion for creating data-driven solutions that address real-world challenges. Currently pursuing a Master's in Engineering Management at Dartmouth College, I bring a unique blend of technical expertise in electronics engineering and business acumen.</p>
             
             <p>My approach combines analytical thinking with creative problem-solving, leveraging my background in AI/ML, data analytics, and strategic planning to deliver products that meet both user needs and business objectives. Throughout my career, I've led research and development projects, optimized product strategies, and collaborated with cross-functional teams to drive innovation.</p>
             
@@ -1083,9 +1121,14 @@
                 <!-- Dartmouth -->
                 <div class="timeline-item timeline-left slide-in-left">
                     <div class="timeline-content hover-lift">
-                        <h3>Master of Engineering Management (MEM)</h3>
-                        <h4>Dartmouth College - Merit Scholarship Recipient</h4>
-                        <div class="date">Sept 2024 - Nov 2025</div>
+                        <div class="timeline-header">
+                            <div class="company-logo"><img src="dartmouth-logo.png" alt="Dartmouth College" /></div>
+                            <div class="timeline-text">
+                                <h3>Master of Engineering Management (MEM)</h3>
+                                <h4>Dartmouth College - Merit Scholarship Recipient</h4>
+                                <div class="date">Sept 2024 - Nov 2025</div>
+                            </div>
+                        </div>
                         <ul>
                             <li>Concentrations: Product Management & Analytics</li>
                             <li>Relevant Coursework: Tech Product Management, Product Design & Development, Pricing & Strategy, Platform & Pricing Strategy, Marketing, Consumer Analytics</li>
@@ -1097,9 +1140,14 @@
                 <!-- Undergraduate -->
                 <div class="timeline-item timeline-right slide-in-right">
                     <div class="timeline-content hover-lift">
-                        <h3>Bachelor of Technology in Electronics Engineering</h3>
-                        <h4>Sardar Patel Institute of Technology (University of Mumbai)</h4>
-                        <div class="date">Aug 2020 - Jun 2024</div>
+                        <div class="timeline-header">
+                            <div class="company-logo"><img src="spit-logo.png" alt="SPIT" /></div>
+                            <div class="timeline-text">
+                                <h3>Bachelor of Technology in Electronics Engineering</h3>
+                                <h4>Sardar Patel Institute of Technology (University of Mumbai)</h4>
+                                <div class="date">Aug 2020 - Jun 2024</div>
+                            </div>
+                        </div>
                         <ul>
                             <li>GPA: 3.79/4.0 (First Class with Distinction)</li>
                             <li>Relevant Coursework: Design Thinking, Financial Engineering, Blockchain, Artificial Intelligence & Machine Learning, Cloud Computing</li>
@@ -1118,9 +1166,14 @@
                 <!-- Appcast Inc -->
                 <div class="timeline-item timeline-left slide-in-left">
                     <div class="timeline-content hover-lift">
-                        <h3>Product Engineer Intern</h3>
-                        <h4>Appcast Inc.</h4>
-                        <div class="date">Jun 2025 - Sept 2025</div>
+                        <div class="timeline-header">
+                            <div class="company-logo"><img src="appcast-logo.png" alt="Appcast" /></div>
+                            <div class="timeline-text">
+                                <h3>Product Engineer Intern</h3>
+                                <h4>Appcast Inc.</h4>
+                                <div class="date">Jun 2025 - Sept 2025</div>
+                            </div>
+                        </div>
                         <ul>
                             <li>Drove development of a performance prediction MVP Model enabling clients to forecast Cost per Apply with 80% accuracy</li>
                             <li>Launched an AI Apply Agent POC compatible with 20+ ATS systems, reducing apply time by 50%</li>
@@ -1133,9 +1186,14 @@
                 <!-- ScribePT -->
                 <div class="timeline-item timeline-right slide-in-right">
                     <div class="timeline-content hover-lift">
-                        <h3>GenAI Product Development Consultant</h3>
-                        <h4>ScribePT</h4>
-                        <div class="date">Mar 2025 - May 2025</div>
+                        <div class="timeline-header">
+                            <div class="company-logo"><img src="scribept-logo.png" alt="ScribePT" /></div>
+                            <div class="timeline-text">
+                                <h3>GenAI Product Development Consultant</h3>
+                                <h4>ScribePT</h4>
+                                <div class="date">Mar 2025 - May 2025</div>
+                            </div>
+                        </div>
                         <ul>
                             <li>Spearheaded product feature enhancement for an MVP medical flagging system utilizing clinicalBERT model</li>
                             <li>Led development of compatible API and integrated system with existing agents using A2A protocol</li>
@@ -1147,9 +1205,14 @@
                 <!-- Graditude -->
                 <div class="timeline-item timeline-left slide-in-left">
                     <div class="timeline-content hover-lift">
-                        <h3>Graduate Product Manager</h3>
-                        <h4>Graditude Connects</h4>
-                        <div class="date">Feb 2025 - May 2025</div>
+                        <div class="timeline-header">
+                            <div class="company-logo"><img src="graditude-logo.png" alt="Graditude Connects" /></div>
+                            <div class="timeline-text">
+                                <h3>Graduate Product Manager</h3>
+                                <h4>Graditude Connects</h4>
+                                <div class="date">Feb 2025 - May 2025</div>
+                            </div>
+                        </div>
                         <ul>
                             <li>Developed GTM strategies through market research and user journey mapping</li>
                             <li>Achieved 7.5% MoM growth in DAUs & 12.5% improvement in retention</li>
@@ -1161,9 +1224,14 @@
                 <!-- Amazon FT&R -->
                 <div class="timeline-item timeline-right slide-in-right">
                     <div class="timeline-content hover-lift">
-                        <h3>Product-line Optimization Consultant</h3>
-                        <h4>Amazon Fulfillment Technologies & Robotics</h4>
-                        <div class="date">Sept 2024 - Nov 2024</div>
+                        <div class="timeline-header">
+                            <div class="company-logo"><img src="amazon-logo.png" alt="Amazon" /></div>
+                            <div class="timeline-text">
+                                <h3>Product-line Optimization Consultant</h3>
+                                <h4>Amazon Fulfillment Technologies & Robotics</h4>
+                                <div class="date">Sept 2024 - Nov 2024</div>
+                            </div>
+                        </div>
                         <ul>
                             <li>Led market analysis of over 30 automated ULD loading-unloading solutions</li>
                             <li>Assessed air-cargo logistic system for scalability & innovation</li>
@@ -1175,9 +1243,14 @@
                 <!-- Electrify Mobility -->
                 <div class="timeline-item timeline-left slide-in-left">
                     <div class="timeline-content hover-lift">
-                        <h3>Co-founder & Product Lead</h3>
-                        <h4>Electrify Mobility</h4>
-                        <div class="date">Jun 2023 - Jul 2024</div>
+                        <div class="timeline-header">
+                            <div class="company-logo"><img src="electrify-mobility-logo.png" alt="Electrify Mobility" /></div>
+                            <div class="timeline-text">
+                                <h3>Co-founder & Product Lead</h3>
+                                <h4>Electrify Mobility</h4>
+                                <div class="date">Jun 2023 - Jul 2024</div>
+                            </div>
+                        </div>
                         <ul>
                             <li>Secured INR 500K in funding and led cross-industry collaboration to prototype accessibility solution</li>
                             <li>Defined and executed GTM strategy through user research and iterative testing</li>
@@ -1189,9 +1262,14 @@
                 <!-- IIT Bombay -->
                 <div class="timeline-item timeline-right slide-in-right">
                     <div class="timeline-content hover-lift">
-                        <h3>Product Research Intern</h3>
-                        <h4>Indian Institute of Technology (IIT) Bombay</h4>
-                        <div class="date">Jan 2023 - Jul 2023</div>
+                        <div class="timeline-header">
+                            <div class="company-logo"><img src="iit-bombay-logo.png" alt="IIT Bombay" /></div>
+                            <div class="timeline-text">
+                                <h3>Product Research Intern</h3>
+                                <h4>Indian Institute of Technology (IIT) Bombay</h4>
+                                <div class="date">Jan 2023 - Jul 2023</div>
+                            </div>
+                        </div>
                         <ul>
                             <li>Led development of a non-invasive ECG extraction device for fetal health monitoring</li>
                             <li>Improved detection accuracy of critical cardiac indicators by 20%</li>
@@ -1203,9 +1281,14 @@
                 <!-- SPJIMR -->
                 <div class="timeline-item timeline-left slide-in-left">
                     <div class="timeline-content hover-lift">
-                        <h3>Data Analytics & Machine Learning Intern</h3>
-                        <h4>SP Jain Institute of Management & Research (SPJIMR)</h4>
-                        <div class="date">Aug 2022 - Dec 2022</div>
+                        <div class="timeline-header">
+                            <div class="company-logo"><img src="spjimr-logo.png" alt="SPJIMR" /></div>
+                            <div class="timeline-text">
+                                <h3>Data Analytics & Machine Learning Intern</h3>
+                                <h4>SP Jain Institute of Management & Research (SPJIMR)</h4>
+                                <div class="date">Aug 2022 - Dec 2022</div>
+                            </div>
+                        </div>
                         <ul>
                             <li>Developed a fraud detection product prototype using SVM-based models</li>
                             <li>Collaborated with financial experts to identify 45+ critical variables</li>
@@ -1657,10 +1740,10 @@
                 const typingElement = document.querySelector('.typing-text');
                 if (typingElement) {
                     const titles = [
-                        'A Product Manager',
-                        'A Data Analyst', 
-                        'A GTM & Strategy Professional',
-                        'A Product Manager'
+                        "I'm a Product Manager",
+                        "I'm a Data Analyst", 
+                        "I'm a GTM & Strategy Professional",
+                        "I'm a Product Manager"
                     ];
                     cyclingTypeWriter(typingElement, titles, 80, 2000);
                 }
